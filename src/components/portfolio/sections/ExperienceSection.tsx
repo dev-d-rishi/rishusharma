@@ -7,11 +7,11 @@ export function ExperienceSection() {
   return (
     <SectionReveal
       id="experience"
-      className="border-t border-white/5 py-16"
+      className="border-t border-[#2C5F7C]/15 py-16"
     >
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Experience</h2>
-        <p className="mt-2 text-sm text-zinc-300">
+        <h2 className="text-2xl font-semibold tracking-tight text-[#1A1A1A]">Experience</h2>
+        <p className="mt-2 text-sm text-[#4A5568]">
           {experience.company} · {experience.duration}
         </p>
 
@@ -19,7 +19,7 @@ export function ExperienceSection() {
           {experience.points.map((p) => (
             <li
               key={p}
-              className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-zinc-300 transition-all duration-300 hover:border-white/20"
+              className="rounded-xl border border-[#2C5F7C]/20 bg-white/70 px-5 py-4 text-sm text-[#4A5568] shadow-sm transition-all duration-300 hover:border-[#6FA3C8]/30 hover:shadow-md"
             >
               {p}
             </li>

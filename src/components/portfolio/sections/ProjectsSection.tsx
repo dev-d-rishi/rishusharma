@@ -9,32 +9,23 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
   const { links } = project;
 
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 transition-[box-shadow,background-color,border-color,transform] duration-300 will-change-transform hover:-translate-y-[5px] hover:border-white/20 hover:bg-white/8 hover:shadow-[0_0_34px_rgba(56,189,248,0.18)]">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background:
-            "radial-gradient(520px circle at 20% 0%, rgba(56,189,248,0.18), transparent 55%)",
-        }}
-      />
-
+    <div className="group relative overflow-hidden rounded-xl border border-[#2C5F7C]/20 bg-white p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
       <div className="relative z-10">
-        <div className="relative h-44 overflow-hidden rounded-xl border border-white/10">
+        <div className="relative h-44 overflow-hidden rounded-lg border border-[#2C5F7C]/10">
           <Image
             src={project.imageSrc ?? "/projects/leadherself.png"}
             alt={`${project.name} preview`}
             fill
             sizes="(max-width: 768px) 90vw, 44vw"
-            className="object-cover transition-transform duration-300 will-change-transform group-hover:scale-[1.05]"
+            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
             priority={false}
           />
         </div>
 
-        <h3 className="mt-5 text-lg font-semibold tracking-tight">
+        <h3 className="mt-5 text-lg font-semibold tracking-tight text-[#1A1A1A]">
           {project.name}
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-zinc-300">
+        <p className="mt-3 text-sm leading-relaxed text-[#4A5568]">
           {project.description}
         </p>
 
@@ -70,14 +61,14 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
 
 export function ProjectsSection() {
   return (
-    <SectionReveal id="projects" className="border-t border-white/5 py-16">
+    <SectionReveal id="projects" className="border-t border-[#2C5F7C]/15 py-16">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-2xl font-semibold tracking-tight text-[#1A1A1A]">
               Projects
             </h2>
-            <p className="mt-2 max-w-2xl text-sm text-zinc-300">
+            <p className="mt-2 max-w-2xl text-sm text-[#4A5568]">
               Selected mobile apps built with clean UI and scalable architecture.
             </p>
           </div>

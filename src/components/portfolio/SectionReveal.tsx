@@ -32,8 +32,8 @@ export function SectionReveal({
     if (prefersReducedMotion) return;
 
     const isSmall = window.matchMedia("(max-width: 640px)").matches;
-    const yFrom = isSmall ? 28 : y;
-    const durationUsed = isSmall ? 0.75 : duration;
+    const yFrom = isSmall ? 16 : Math.min(y, 24);
+    const durationUsed = isSmall ? 0.65 : Math.min(duration, 0.7);
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -43,7 +43,7 @@ export function SectionReveal({
           opacity: 1,
           y: 0,
           duration: durationUsed,
-          ease: "power3.out",
+          ease: "power2.out",
           scrollTrigger: {
             trigger: el,
             start: "top 80%",

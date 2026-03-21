@@ -5,10 +5,11 @@ import { ProjectsSection } from "@/src/components/portfolio/sections/ProjectsSec
 import { SkillsSection } from "@/src/components/portfolio/sections/SkillsSection";
 import { SiteFooter } from "@/src/components/portfolio/SiteFooter";
 import { SiteNavbar } from "@/src/components/portfolio/SiteNavbar";
+import { WavePattern } from "@/src/components/portfolio/WavePattern";
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-black text-zinc-50">
+    <div className="min-h-screen bg-[#F5EFE6] text-[rgb(26,26,26)]">
       <SiteNavbar />
       <main className="flex flex-col">
         <HeroSection />
@@ -18,6 +19,7 @@ export default function Page() {
         <ContactSection />
       </main>
       <SiteFooter />
+        <WavePattern />
     </div>
   );
 }

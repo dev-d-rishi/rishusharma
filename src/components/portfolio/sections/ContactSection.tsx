@@ -9,17 +9,17 @@ export function ContactSection() {
   return (
     <SectionReveal
       id="contact"
-      className="border-t border-white/5 py-16"
+      className="border-t border-[#2C5F7C]/15 py-16"
     >
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Contact</h2>
-        <p className="mt-2 text-sm text-zinc-300">Open to opportunities in Dubai</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-[#1A1A1A]">Contact</h2>
+        <p className="mt-2 text-sm text-[#4A5568]">Open to opportunities in Dubai</p>
 
-        <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6">
-          <p className="text-sm text-zinc-200">Email</p>
+        <div className="mt-8 rounded-xl border border-[#2C5F7C]/20 bg-white/70 p-6 shadow-sm">
+          <p className="text-sm text-[#4A5568]">Email</p>
           <a
             href={`mailto:${email}`}
-            className="mt-2 block text-lg font-medium text-white underline decoration-white/20 underline-offset-4 transition-colors hover:decoration-white/60"
+            className="mt-2 block text-lg font-medium text-[#1E3A5F] underline decoration-[#6FA3C8]/40 underline-offset-4 transition-colors hover:decoration-[#1E3A5F]"
           >
             {email}
           </a>
