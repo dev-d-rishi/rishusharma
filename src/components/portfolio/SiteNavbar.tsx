@@ -38,8 +38,9 @@ export function SiteNavbar() {
   useEffect(() => {
     if (!open) return;
 
-    const onDocClick = (e: MouseEvent) => {
-      const target = e.target as Node;
+    const onDocClick = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as Node | null;
+      if (!target) return;
       if (
         menuRef.current &&
         !menuRef.current.contains(target) &&
