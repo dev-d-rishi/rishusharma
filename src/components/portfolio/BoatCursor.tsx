@@ -8,9 +8,9 @@ import {
 
 const MIN_MOVE = 4;
 const VELOCITY_SMOOTH = 0.2;
-const BASE_SIZE = 36;
-const MAX_SIZE_BONUS = 24; // boat can grow up to 60px when moving fast
-const VELOCITY_SCALE = 0.012; // px per px/ms
+const BASE_SIZE = 80;
+const MAX_SIZE_BONUS = 12; // cap growth to +12px (max ~52px)
+const VELOCITY_SCALE = 0.006; // reduce sensitivity
 
 export function BoatCursor() {
   const elRef = useRef<HTMLDivElement>(null);
@@ -68,7 +68,7 @@ export function BoatCursor() {
       prevPos.current = { x: e.clientX, y: e.clientY, t: now };
 
       const sizeBonus = Math.min(smoothVel * VELOCITY_SCALE, MAX_SIZE_BONUS);
-      const size = BASE_SIZE + sizeBonus;
+      const size = Math.min(BASE_SIZE + sizeBonus, BASE_SIZE + MAX_SIZE_BONUS);
 
       updateCursorSnapshot({
         x: e.clientX,
@@ -101,8 +101,8 @@ export function BoatCursor() {
         ref={imgRef}
         src="/assets/images/ship.png"
         alt=""
-        className="select-none transition-[width,height] duration-100"
-        style={{ width: 36, height: 36 }}
+        className="select-none duration-100"
+        style={{ width: BASE_SIZE, height: BASE_SIZE }}
         draggable={false}
       />
     </div>

@@ -18,8 +18,8 @@ export default function Page() {
         <ProjectsSection />
         <ContactSection />
       </main>
+      <WavePattern />
       <SiteFooter />
-        <WavePattern />
     </div>
   );
 }
