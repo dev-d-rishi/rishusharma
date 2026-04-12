@@ -3,7 +3,7 @@
 import { SectionReveal } from "@/src/components/portfolio/SectionReveal";
 import { ButtonLink } from "@/src/components/portfolio/ButtonLink";
 
-const email = "dev.d.rishi.7@gmail.com";
+const email = "rishusharma052003@gmail.com";
 
 export function ContactSection() {
   return (
