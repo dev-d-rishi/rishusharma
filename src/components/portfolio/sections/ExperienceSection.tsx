@@ -17,7 +17,10 @@ export function ExperienceSection() {
               Experience
             </h2>
             <p className="mt-2 text-sm text-[#4A5568]">
-              {experience.company} · {experience.duration}
+              {experience.role} · {experience.company}
+            </p>
+            <p className="mt-1 text-sm text-[#4A5568]/80">
+              {experience.duration}
             </p>
 
             <ul className="mt-8 space-y-4">

@@ -11,6 +11,13 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Rishu Sharma | React Native Developer",
   description: "High-performance React Native developer portfolio.",
+  icons: {
+    icon: [
+      { url: "/assets/images/Tsunami.jpg", type: "image/jpeg" },
+    ],
+    shortcut: "/assets/images/Tsunami.jpg",
+    apple: "/assets/images/Tsunami.jpg",
+  },
 };
 
 export default function RootLayout({
