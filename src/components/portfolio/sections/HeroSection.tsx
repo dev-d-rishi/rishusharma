@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ButtonLink } from "@/src/components/portfolio/ButtonLink";
-import { WavePattern } from "@/src/components/portfolio/WavePattern";
+import { personalInfo } from "@/src/components/portfolio/portfolioData";
 import Image from "next/image";
 
 export function HeroSection() {
@@ -58,7 +58,7 @@ export function HeroSection() {
             <div className="flex items-center gap-3" data-hero>
               <span className="h-2 w-2 rounded-full bg-[#6FA3C8]" />
               <p className="text-sm text-[#4A5568]">
-                Premium React Native Engineering
+                Senior React Native Engineering · {personalInfo.availability}
               </p>
             </div>
 
@@ -70,20 +70,20 @@ export function HeroSection() {
                 ref={nameRef}
                 className="inline-block bg-gradient-to-r from-[#1E3A5F] via-[#2C5F7C] to-[#6FA3C8] bg-clip-text text-transparent"
               >
-                Rishu Sharma
+                {personalInfo.name}
               </span>
-              {/* Brush-like underline effect */}
               <span className="mt-1 block h-0.5 w-24 rounded-full bg-gradient-to-r from-[#1E3A5F]/60 to-[#6FA3C8]/40" />
             </h1>
             <p className="mt-3 text-xl text-[#1A1A1A]" data-hero>
-              React Native Developer
+              {personalInfo.title}
             </p>
             <p
               className="mt-4 max-w-xl text-base leading-relaxed text-[#4A5568]"
               data-hero
             >
-              I build high-performance mobile apps with clean UI and scalable
-              architecture.
+              I build and ship production-grade cross-platform mobile apps for
+              Android and iOS — from architecture and integrations to App Store
+              and Play Store deployment.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row" data-hero>
@@ -115,20 +115,20 @@ export function HeroSection() {
               <ul className="mt-4 space-y-3 text-sm text-[#4A5568]">
                 <li className="flex items-center gap-3">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#6FA3C8]" />
-                  Performance + UX
+                  End-to-end mobile delivery
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#6FA3C8]" />
-                  Scalable architecture
+                  Production iOS &amp; Android apps
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#6FA3C8]" />
-                  Clean UI systems
+                  Performance &amp; scalable architecture
                 </li>
               </ul>
             </div>
             <p className="mt-4 text-xs text-[#4A5568]/80">
-              Scroll for skills, experience, and selected projects.
+              Scroll for about, skills, experience, and selected projects.
             </p>
           </div>
         </div>

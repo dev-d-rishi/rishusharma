@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { getCursorSnapshot } from "@/src/components/portfolio/cursorStore";
+import {
+  getCursorSnapshot,
+  getIsOverWaves,
+  updateCursorSnapshot,
+} from "@/src/components/portfolio/cursorStore";
 
 /**
  * WavePattern — animated wave section inspired by "The Great Wave off Kanagawa"
@@ -23,6 +27,35 @@ import { getCursorSnapshot } from "@/src/components/portfolio/cursorStore";
 export function WavePattern({ className = "" }: { className?: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const disruptRef = useRef<HTMLDivElement>(null);
+
+  /* ─── Cursor tracking for wave disruption ─────────────────────────────── */
+  useEffect(() => {
+    let prevPos = { x: 0, y: 0, t: 0 };
+    let prevVel = 0;
+
+    const onMove = (e: MouseEvent) => {
+      const now = performance.now();
+      const { x, y, t } = prevPos;
+      const dt = (now - t) / 1000 || 0.016;
+      const dx = e.clientX - x;
+      const dy = e.clientY - y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const instantVel = dt > 0 ? dist / dt : 0;
+      const smoothVel = prevVel * 0.8 + instantVel * 0.2;
+      prevVel = smoothVel;
+      prevPos = { x: e.clientX, y: e.clientY, t: now };
+
+      updateCursorSnapshot({
+        x: e.clientX,
+        y: e.clientY,
+        velocity: smoothVel,
+        isOverWaves: getIsOverWaves(e.clientY),
+      });
+    };
+
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
 
   /* ─── Cursor-driven wave disruption ───────────────────────────────────── */
   useEffect(() => {

@@ -1,4 +1,6 @@
+import { AboutSection } from "@/src/components/portfolio/sections/AboutSection";
 import { ContactSection } from "@/src/components/portfolio/sections/ContactSection";
+import { EducationSection } from "@/src/components/portfolio/sections/EducationSection";
 import { ExperienceSection } from "@/src/components/portfolio/sections/ExperienceSection";
 import { HeroSection } from "@/src/components/portfolio/sections/HeroSection";
 import { ProjectsSection } from "@/src/components/portfolio/sections/ProjectsSection";
@@ -13,9 +15,11 @@ export default function Page() {
       <SiteNavbar />
       <main className="flex flex-col">
         <HeroSection />
+        <AboutSection />
         <SkillsSection />
         <ExperienceSection />
         <ProjectsSection />
+        <EducationSection />
         <ContactSection />
       </main>
       <WavePattern />

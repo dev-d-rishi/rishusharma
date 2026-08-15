@@ -28,11 +28,6 @@ body {
   line-height: 1.65;
 }
 
-/* Hide default cursor only when boat cursor is active (desktop) */
-body.boat-cursor-active {
-  cursor: none;
-}
-
 /* Subtle paper texture overlay (optional light noise) */
 body::before {
   content: "";

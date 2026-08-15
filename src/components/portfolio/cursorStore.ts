@@ -1,5 +1,5 @@
 /**
- * Shared cursor state — updated by BoatCursor, read by WavePattern.
+ * Shared cursor state — updated by WavePattern, read for wave disruption.
  * Avoids React re-renders for smooth 60fps cursor tracking.
  */
 export type CursorSnapshot = {

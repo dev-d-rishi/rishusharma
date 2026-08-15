@@ -5,9 +5,11 @@ import { useEffect, useRef, useState } from "react";
 export function SiteNavbar() {
   const links = [
     { href: "#home", label: "Home" },
+    { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#experience", label: "Experience" },
     { href: "#projects", label: "Projects" },
+    { href: "#education", label: "Education" },
     { href: "#contact", label: "Contact" },
   ];
 
