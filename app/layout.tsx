@@ -7,20 +7,20 @@ const inter = Inter({
   display: "swap",
 });
 
-const title = "Rishu Sharma | Senior React Native Engineer";
+const title = "Rishu Sharma | Senior React Native Developer";
 const description =
-  "Senior React Native Engineer with 3+ years building cross-platform mobile apps for Android and iOS. Experienced in TypeScript, Redux Toolkit, Firebase, REST APIs, and App Store / Play Store deployment. Open to remote opportunities.";
+  "Senior React Native Developer with 3+ years building cross-platform mobile apps for Android and iOS. Experienced in TypeScript, Redux Toolkit, Firebase, REST APIs, and App Store / Play Store deployment. Open to remote opportunities.";
 
 export const metadata: Metadata = {
   title,
   description,
   keywords: [
     "React Native Developer",
-    "Senior React Native Engineer",
+    "Senior React Native Developer",
     "React Native Developer India",
     "Mobile App Developer",
     "React Native iOS Android",
-    "React Native Engineer",
+    "React Native Developer",
     "Mobile Application Engineer",
     "TypeScript Developer",
     "React Native Expo",

@@ -58,7 +58,7 @@ export function HeroSection() {
             <div className="flex items-center gap-3" data-hero>
               <span className="h-2 w-2 rounded-full bg-[#6FA3C8]" />
               <p className="text-sm text-[#4A5568]">
-                Senior React Native Engineering · {personalInfo.availability}
+                Senior React Native Developering · {personalInfo.availability}
               </p>
             </div>
 

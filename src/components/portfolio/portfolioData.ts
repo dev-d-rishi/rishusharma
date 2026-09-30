@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Rishu Sharma",
-  title: "Senior React Native Engineer",
+  title: "Senior React Native Developer",
   location: "India",
   availability: "Open to Remote",
   email: "rishusharma052003@gmail.com",
@@ -8,7 +8,7 @@ export const personalInfo = {
 } as const;
 
 export const aboutSummary = [
-  "Results-driven React Native Engineer with 3+ years of hands-on experience building and shipping cross-platform mobile applications for Android and iOS.",
+  "Results-driven React Native Developer with 3+ years of hands-on experience building and shipping cross-platform mobile applications for Android and iOS.",
   "Strong expertise in React Native, JavaScript, TypeScript, Redux Toolkit, Firebase, REST APIs, and mobile architecture — with experience owning the full mobile product lifecycle from architecture and development through App Store and Google Play deployment.",
   "Currently pursuing a Bachelor of Computer Applications (BCA), started in 2026. Open to senior React Native, mobile engineering, and product-based SaaS roles with international remote teams.",
 ] as const;
@@ -53,7 +53,6 @@ export const skillCategories: SkillCategory[] = [
       "Push Notifications",
       "Deep Linking",
       "Firebase Authentication",
-      "Offline-first",
       "Google Maps",
       "GPS / Location",
       "Payment Integrations",
@@ -139,12 +138,11 @@ export const projects: PortfolioProject[] = [
     name: "LeadHerself",
     subtitle: "Women's Leadership Platform",
     description:
-      "Cross-platform app for guided self-leadership journeys and personalized growth. Firebase Authentication, role-based access control, event registration, push notifications, and offline-first local data persistence.",
+      "Cross-platform app for guided self-leadership journeys and personalized growth. Firebase Authentication, role-based access control, event registration, push notifications and local data persistence.",
     technologies: [
       "React Native",
       "Firebase",
       "Push Notifications",
-      "Offline-first",
       "REST APIs",
     ],
     imageSrc: "/projects/leadherself.png",
@@ -204,7 +202,7 @@ export const projects: PortfolioProject[] = [
     subtitle: "E-Commerce Learning Platform",
     description:
       "Cross-platform learning platform for entrepreneurs with structured course modules, live coaching session access, community features, offline course access, and push reminders for scheduled live sessions.",
-    technologies: ["React Native", "Push Notifications", "Offline-first"],
+    technologies: ["React Native", "Push Notifications"],
     status: "In Development",
     links: {},
   },
@@ -216,7 +214,7 @@ export const experience = {
   duration: "June 2023 – Present",
   points: [
     "Developed and maintained production-grade React Native applications for Android and iOS.",
-    "Implemented authentication, REST API integrations, push notifications, deep linking, and offline-first functionality.",
+    "Implemented authentication, REST API integrations, push notifications, and deep linking functionality.",
     "Improved application startup performance and rendering using lazy loading and optimization techniques.",
     "Built reusable components and shared modules to improve development efficiency and maintainability.",
     "Managed App Store and Google Play Store releases, signing, provisioning, and production deployments.",
@@ -234,7 +232,7 @@ export type EducationEntry = {
 export const education: EducationEntry[] = [
   {
     degree: "Bachelor of Computer Applications (BCA)",
-    detail: "Pursuing — Started 2026",
+    detail: "Pursuing",
   },
   {
     degree: "Diploma in Computer Applications (DCA)",

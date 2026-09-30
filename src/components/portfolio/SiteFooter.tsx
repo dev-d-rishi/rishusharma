@@ -10,7 +10,7 @@ export function SiteFooter() {
       <WavePattern className="opacity-[0.04]" />
       <div className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-4 py-6 text-sm text-[#4A5568]">
         <span>© {year} Rishu Sharma</span>
-        <span className="hidden sm:inline">Senior React Native Engineer</span>
+        <span className="hidden sm:inline">Senior React Native Developer</span>
       </div>
     </footer>
   );
