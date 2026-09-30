@@ -22,7 +22,7 @@ export default function Page() {
         <EducationSection />
         <ContactSection />
       </main>
-      <WavePattern />
+      {/* <WavePattern /> */}
       <SiteFooter />
     </div>
   );
