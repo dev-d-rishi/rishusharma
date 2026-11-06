@@ -4,29 +4,45 @@ type ButtonLinkProps = {
   href: string;
   children: ReactNode;
   variant?: "primary" | "secondary";
+  size?: "md" | "lg";
   target?: "_blank" | "_self";
+  /** Accessible label, e.g. to announce that a link opens in a new tab. */
+  ariaLabel?: string;
+  /** Restrained emerald glow on hover (primary buttons only). */
+  glow?: boolean;
 };
 
 export function ButtonLink({
   href,
   children,
   variant = "secondary",
+  size = "md",
   target = "_self",
+  ariaLabel,
+  glow = false,
 }: ButtonLinkProps) {
   const base =
-    "inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#6FA3C8]/40 focus:ring-offset-2 focus:ring-offset-[#F5EFE6]";
+    "group/btn inline-flex items-center justify-center gap-2 rounded-[10px] font-semibold transition-[background-color,border-color,color,box-shadow,scale] duration-200 ease-brand motion-safe:active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg";
+
+  const sizes =
+    size === "lg" ? "min-h-12 px-6 text-[15px]" : "min-h-11 px-5 text-sm";
 
   const styles =
     variant === "primary"
-      ? "bg-[#1E3A5F] text-white hover:bg-[#162d47]"
-      : "border border-[#1E3A5F] bg-transparent text-[#1E3A5F] hover:bg-[#1E3A5F]/5";
+      ? `bg-accent text-bg hover:bg-accent-hover active:bg-accent-active ${
+          glow
+            ? "hover:shadow-[0_0_0_4px_rgb(52_211_153/0.12),0_10px_30px_-12px_rgb(52_211_153/0.6)]"
+            : ""
+        }`
+      : "border border-line-strong bg-bg-2 text-fg hover:border-subtle hover:bg-surface active:bg-surface-hover";
 
   return (
     <a
       href={href}
       target={target}
       rel={target === "_blank" ? "noopener noreferrer" : undefined}
-      className={`${base} ${styles}`}
+      aria-label={ariaLabel}
+      className={`${base} ${sizes} ${styles}`}
     >
       {children}
     </a>

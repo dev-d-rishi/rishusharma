@@ -1,136 +1,83 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
 import { ButtonLink } from "@/src/components/portfolio/ButtonLink";
-import { personalInfo } from "@/src/components/portfolio/portfolioData";
-import Image from "next/image";
+import { hero, personalInfo } from "@/src/components/portfolio/portfolioData";
+
+/** Faint blueprint grid behind the hero, faded out with a radial mask. */
+const gridStyle = {
+  backgroundImage:
+    "linear-gradient(to right, var(--line) 1px, transparent 1px), linear-gradient(to bottom, var(--line) 1px, transparent 1px)",
+  backgroundSize: "56px 56px",
+  maskImage:
+    "radial-gradient(ellipse 70% 60% at 80% 20%, #000 0%, transparent 70%)",
+  WebkitMaskImage:
+    "radial-gradient(ellipse 70% 60% at 80% 20%, #000 0%, transparent 70%)",
+} as const;
 
 export function HeroSection() {
-  const contentRef = useRef<HTMLDivElement | null>(null);
-  const nameRef = useRef<HTMLSpanElement | null>(null);
-
-  useEffect(() => {
-    const el = contentRef.current;
-    if (!el) return;
-
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (prefersReducedMotion) return;
-
-    const nodes = el.querySelectorAll<HTMLElement>("[data-hero]");
-    gsap.from(nodes, {
-      opacity: 0,
-      y: 12,
-      duration: 0.75,
-      ease: "power2.out",
-      stagger: 0.06,
-    });
-
-    const titleEl = nameRef.current;
-    if (titleEl) {
-      const isSmall = window.matchMedia("(max-width: 640px)").matches;
-      const floatY = isSmall ? -2 : -3;
-      const floatDuration = isSmall ? 4 : 4.5;
-
-      gsap.delayedCall(1, () => {
-        gsap.to(titleEl, {
-          y: floatY,
-          duration: floatDuration,
-          ease: "sine.inOut",
-          repeat: -1,
-          yoyo: true,
-          overwrite: "auto",
-        });
-      });
-    }
-  }, []);
+  const { headline, headlineAccent } = hero;
+  const lead = headline.endsWith(headlineAccent)
+    ? headline.slice(0, -headlineAccent.length)
+    : headline;
+  const accent = headline.endsWith(headlineAccent) ? headlineAccent : "";
 
   return (
-    <section id="home" className="relative overflow-hidden">
-      <div className="relative mx-auto max-w-6xl px-4 pt-24 pb-20">
-        <div
-          ref={contentRef}
-          className="grid gap-10 md:grid-cols-12 md:items-center"
+    <section
+      id="home"
+      aria-labelledby="hero-heading"
+      className="relative isolate overflow-hidden"
+    >
+      <div
+        aria-hidden="true"
+        className="fade-in pointer-events-none absolute inset-0 -z-10 opacity-60 [animation-delay:200ms]"
+        style={gridStyle}
+      />
+
+      <div className="page-container pb-16 pt-16 sm:pt-24 lg:pb-24 lg:pt-32">
+        <p className="rise-in inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-accent/10 py-1.5 pl-3 pr-3.5 text-label text-accent">
+          <span className="relative flex h-2 w-2" aria-hidden="true">
+            <span className="absolute inset-0 rounded-full bg-accent/40 ring-4 ring-accent/15" />
+            <span className="relative h-2 w-2 rounded-full bg-accent" />
+          </span>
+          {personalInfo.freelanceStatus}
+        </p>
+
+        <h1
+          id="hero-heading"
+          className="rise-in mt-8 max-w-[20ch] text-balance text-display text-fg [animation-delay:80ms]"
         >
-          <div className="md:col-span-7">
-            <div className="flex items-center gap-3" data-hero>
-              <span className="h-2 w-2 rounded-full bg-[#6FA3C8]" />
-              <p className="text-sm text-[#4A5568]">
-                Senior React Native Developer · {personalInfo.availability}
-              </p>
-            </div>
+          {lead}
+          {accent ? <span className="text-accent">{accent}</span> : null}
+        </h1>
 
-            <h1
-              className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl"
-              data-hero
-            >
-              <span
-                ref={nameRef}
-                className="inline-block bg-gradient-to-r from-[#1E3A5F] via-[#2C5F7C] to-[#6FA3C8] bg-clip-text text-transparent"
-              >
-                {personalInfo.name}
-              </span>
-              <span className="mt-1 block h-0.5 w-24 rounded-full bg-gradient-to-r from-[#1E3A5F]/60 to-[#6FA3C8]/40" />
-            </h1>
-            <p className="mt-3 text-xl text-[#1A1A1A]" data-hero>
-              {personalInfo.title}
-            </p>
-            <p
-              className="mt-4 max-w-xl text-base leading-relaxed text-[#4A5568]"
-              data-hero
-            >
-              I build and ship production-grade cross-platform mobile apps for
-              Android and iOS — from architecture and integrations to App Store
-              and Play Store deployment.
-            </p>
+        <p className="rise-in mt-6 max-w-[38rem] text-lead text-muted [animation-delay:170ms] sm:mt-8">
+          {hero.description}
+        </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row" data-hero>
-              <ButtonLink href="#projects" variant="primary">
-                View Projects
-              </ButtonLink>
-              <ButtonLink href="#contact" variant="secondary">
-                Contact Me
-              </ButtonLink>
-            </div>
-          </div>
-
-          <div className="md:col-span-5">
-            <div className="relative mb-6 overflow-hidden rounded-2xl border border-[#2C5F7C]/20">
-              <Image
-                src="/assets/images/Tsunami.jpg"
-                alt="Great Wave"
-                width={600}
-                height={400}
-                className="h-full w-full object-cover"
-                priority
-              />
-            </div>
-            <div
-              className="rounded-2xl border border-[#2C5F7C]/20 bg-white/60 p-6 shadow-sm"
-              data-hero
+        <div className="rise-in mt-10 flex flex-col gap-3 [animation-delay:260ms] min-[480px]:flex-row">
+          <ButtonLink href="#work" variant="primary" size="lg">
+            Explore my work
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-200 ease-brand motion-safe:group-hover/btn:translate-x-0.5"
             >
-              <p className="text-sm font-medium text-[#1E3A5F]">Focus</p>
-              <ul className="mt-4 space-y-3 text-sm text-[#4A5568]">
-                <li className="flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#6FA3C8]" />
-                  End-to-end mobile delivery
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#6FA3C8]" />
-                  Production iOS &amp; Android apps
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#6FA3C8]" />
-                  Performance &amp; scalable architecture
-                </li>
-              </ul>
-            </div>
-            <p className="mt-4 text-xs text-[#4A5568]/80">
-              Scroll for about, skills, experience, and selected projects.
-            </p>
-          </div>
+              →
+            </span>
+          </ButtonLink>
+          <ButtonLink href="#contact" variant="secondary" size="lg">
+            Let&apos;s talk
+          </ButtonLink>
+        </div>
+
+        <div className="fade-in mt-16 flex flex-col gap-2 border-t [animation-delay:380ms] border-line pt-6 text-sm text-subtle sm:flex-row sm:items-center sm:justify-between lg:mt-24">
+          <p>
+            <span className="font-medium text-fg">{personalInfo.name}</span>
+            <span aria-hidden="true"> — </span>
+            <span className="sr-only">, </span>
+            {personalInfo.descriptor}
+          </p>
+          <p>
+            {personalInfo.specialization}{" "}
+            <span className="whitespace-nowrap">· iOS &amp; Android</span>
+          </p>
         </div>
       </div>
     </section>

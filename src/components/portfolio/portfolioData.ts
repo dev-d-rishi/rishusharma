@@ -1,14 +1,72 @@
 export const personalInfo = {
   name: "Rishu Sharma",
+  /** Brand descriptor used across the site. */
+  descriptor: "Independent Mobile Engineer",
+  specialization: "React Native & Mobile App Development",
   title: "Senior React Native Developer",
   location: "India",
   availability: "Open to Remote",
   email: "rishusharma052003@gmail.com",
   phone: "+91-8699447760",
+  /** Shown as the hero status pill. */
+  freelanceStatus: "Available for freelance projects",
+  /** Add full profile URLs to show these links in the Contact section. */
+  github: "" as string,
+  linkedin: "" as string,
 } as const;
 
+export const hero = {
+  headline: "I build mobile experiences that solve real problems.",
+  /** Trailing part of the headline rendered in the accent colour. */
+  headlineAccent: "real problems.",
+  description:
+    "I'm a React Native developer with 4+ years of experience building production-ready applications for iOS and Android, from feature development to integrations and app releases.",
+} as const;
+
+/** Homepage "About" copy. The longer `aboutSummary` below is kept for reference. */
+export const aboutIntro = [
+  "I'm Rishu, a React Native developer who has spent the last 4+ years building and shipping production apps for Android and iOS — from fintech wallets and merchant payment tools to consumer and community products.",
+  "Most of my work sits where the product meets the platform: native SDK integrations, payments, maps, notifications and the release pipeline that gets an app into the stores. I enjoy untangling hard technical problems, and I work closely with designers, backend engineers and QA to ship apps that hold up in production.",
+] as const;
+
+export type Service = {
+  icon: "app" | "maintenance" | "integrations";
+  title: string;
+  description: string;
+};
+
+export const services: Service[] = [
+  {
+    icon: "app",
+    title: "React Native App Development",
+    description:
+      "From an idea or design to a working iOS and Android app — built with one codebase and ready for real users.",
+  },
+  {
+    icon: "maintenance",
+    title: "App Maintenance & Bug Fixing",
+    description:
+      "Crash fixes, performance issues, dependency upgrades and new features for an app that's already live.",
+  },
+  {
+    icon: "integrations",
+    title: "API, SDK Integrations & Production Releases",
+    description:
+      "Payments, maps, auth and third-party SDKs wired in properly, plus App Store and Google Play releases handled end to end.",
+  },
+];
+
+/** Projects shown as smaller cards in Selected Work (by `projects[].name`). */
+export const selectedProjectNames = ["Fyntiq Business", "LeadHerself"] as const;
+
+/** Case studies featured prominently in Selected Work (by case study slug). */
+export const featuredCaseStudySlugs = [
+  "fyntiq-wallet",
+  "wooftag-qr-pet-identity",
+] as const;
+
 export const aboutSummary = [
-  "Results-driven React Native Developer with 3+ years of hands-on experience building and shipping cross-platform mobile applications for Android and iOS.",
+  "Results-driven React Native Developer with 4+ years of hands-on experience building and shipping cross-platform mobile applications for Android and iOS.",
   "Strong expertise in React Native, JavaScript, TypeScript, Redux Toolkit, Firebase, REST APIs, and mobile architecture — with experience owning the full mobile product lifecycle from architecture and development through App Store and Google Play deployment.",
   "Currently pursuing a Bachelor of Computer Applications (BCA), started in 2026. Open to senior React Native, mobile engineering, and product-based SaaS roles with international remote teams.",
 ] as const;

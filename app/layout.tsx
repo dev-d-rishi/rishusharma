@@ -1,17 +1,26 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
+import { siteUrl } from "@/src/components/portfolio/site";
 import "./globals.css";
 
-const inter = Inter({
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const title = "Rishu Sharma | Senior React Native Developer";
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const title = "Rishu Sharma | Independent Mobile Engineer";
 const description =
-  "Senior React Native Developer with 3+ years building cross-platform mobile apps for Android and iOS. Experienced in TypeScript, Redux Toolkit, Firebase, REST APIs, and App Store / Play Store deployment. Open to remote opportunities.";
+  "Independent mobile engineer specialising in React Native & mobile app development. 4+ years of experience building production-ready apps for iOS and Android — from feature development to integrations and app releases. Available for freelance projects.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title,
   description,
   keywords: [
@@ -37,11 +46,6 @@ export const metadata: Metadata = {
     title,
     description,
   },
-  icons: {
-    icon: [{ url: "/assets/images/Tsunami.jpg", type: "image/jpeg" }],
-    shortcut: "/assets/images/Tsunami.jpg",
-    apple: "/assets/images/Tsunami.jpg",
-  },
 };
 
 export default function RootLayout({
@@ -50,8 +54,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className={`min-h-full flex flex-col antialiased ${inter.className}`}>
+    <html
+      lang="en"
+      className={`h-full antialiased ${geistSans.variable} ${geistMono.variable}`}
+    >
+      <body className="flex min-h-full flex-col bg-bg font-sans text-fg antialiased">
         {children}
       </body>
     </html>

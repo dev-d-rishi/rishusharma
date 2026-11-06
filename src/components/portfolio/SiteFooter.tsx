@@ -1,16 +1,24 @@
-"use client";
-
-import { WavePattern } from "@/src/components/portfolio/WavePattern";
+import { BrandMark } from "@/src/components/portfolio/BrandMark";
+import { personalInfo } from "@/src/components/portfolio/portfolioData";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-[#2C5F7C]/15 bg-[#F5EFE6]/80">
-      <WavePattern className="opacity-[0.04]" />
-      <div className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-4 py-6 text-sm text-[#4A5568]">
-        <span>© {year} Rishu Sharma</span>
-        <span className="hidden sm:inline">Senior React Native Developer</span>
+    <footer className="border-t border-line bg-bg">
+      <div className="page-container flex flex-col gap-4 py-8 text-sm text-subtle sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center gap-3">
+          <BrandMark size={28} />
+          <p>
+            <span className="font-medium text-fg">{personalInfo.name}</span>
+            <span aria-hidden="true"> · </span>
+            <span className="sr-only">, </span>
+            {personalInfo.descriptor}
+          </p>
+        </div>
+        <p>
+          © {year} {personalInfo.name}
+        </p>
       </div>
     </footer>
   );
