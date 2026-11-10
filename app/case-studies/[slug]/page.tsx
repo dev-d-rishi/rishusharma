@@ -51,11 +51,11 @@ export default async function CaseStudyPage({
   return (
     <PageShell>
       <article>
-        <header className="border-b border-line py-12 sm:py-16">
+        <header className="pt-12 pb-10 sm:pt-16">
           <div className="mx-auto max-w-4xl px-5 md:px-6">
             <Link
               href="/case-studies"
-              className="rise-in group inline-flex items-center gap-1.5 rounded text-sm text-muted transition-colors duration-200 ease-brand hover:text-fg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="group inline-flex min-h-11 items-center gap-1.5 rounded text-sm font-semibold text-muted transition-colors duration-200 ease-brand hover:text-fg focus:outline-none focus-visible:ring-2 focus-visible:ring-fg/70"
             >
               <span
                 aria-hidden="true"
@@ -65,24 +65,22 @@ export default async function CaseStudyPage({
               </span>
               All case studies
             </Link>
-            <div className="rise-in mt-6 flex flex-wrap items-center gap-2 [animation-delay:60ms]">
-              <p className="eyebrow">
-                {study.client} · {study.category}
-              </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <p className="eyebrow">{study.category}</p>
               {study.status ? (
-                <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+                <span className="glass rounded-full px-2.5 py-0.5 text-xs font-medium text-fg">
                   {study.status}
                 </span>
               ) : null}
             </div>
-            <h1 className="rise-in mt-3 text-heading text-fg [animation-delay:120ms]">
+            <h1 className="mt-4 font-display text-heading text-fg">
               {study.title}
             </h1>
-            <p className="rise-in mt-5 text-base leading-relaxed text-muted [animation-delay:180ms] sm:text-lg">
+            <p className="mt-6 text-lead text-fg">
               {study.summary}
             </p>
 
-            <dl className="rise-in mt-8 grid gap-6 rounded-[14px] border border-line bg-surface p-6 [animation-delay:260ms] sm:grid-cols-3">
+            <dl className="mt-10 grid gap-6 border-t border-line pt-6 sm:grid-cols-3">
               <div>
                 <dt className="eyebrow">Role</dt>
                 <dd className="mt-1 text-sm text-fg">{study.role}</dd>
@@ -97,7 +95,7 @@ export default async function CaseStudyPage({
                   {study.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full border border-line bg-bg px-2 py-0.5 text-xs text-muted"
+                      className="glass rounded-full px-2.5 py-1 text-xs font-medium text-fg/90"
                     >
                       {tech}
                     </span>
@@ -111,7 +109,7 @@ export default async function CaseStudyPage({
         {study.screenshots?.length ? (
           <section
             aria-label={`${study.client} screenshots`}
-            className="mt-10 border-b border-line pb-10"
+            className="mt-6 pb-6"
           >
             <div className="mx-auto max-w-6xl">
               <Reveal className="flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 md:px-6 pb-4 scrollbar-thin">
@@ -121,7 +119,8 @@ export default async function CaseStudyPage({
                     data-reveal
                     className="w-[200px] shrink-0 snap-start sm:w-[220px]"
                   >
-                    <div className="overflow-hidden rounded-[14px] border border-line bg-surface">
+                    <div className="phone">
+                      <div className="phone-screen">
                       <Image
                         src={shot.src}
                         alt={shot.alt}
@@ -131,6 +130,7 @@ export default async function CaseStudyPage({
                         priority={i < 3}
                         className="h-auto w-full"
                       />
+                      </div>
                     </div>
                     <figcaption className="mt-3 text-center text-xs text-muted">
                       {shot.caption}
@@ -160,10 +160,10 @@ export default async function CaseStudyPage({
             <div
               key={h.label}
               data-reveal
-              className="rounded-[14px] border border-line bg-surface p-5 transition-[border-color,background-color] duration-300 ease-brand hover:border-accent/30 hover:bg-surface-hover"
+              className="border-t border-line pt-3"
             >
               <p className="eyebrow">{h.label}</p>
-              <p className="mt-2 text-sm font-medium text-fg">{h.value}</p>
+              <p className="mt-1 text-[15px] font-medium leading-snug text-fg">{h.value}</p>
             </div>
           ))}
         </Reveal>
@@ -201,15 +201,9 @@ export default async function CaseStudyPage({
             <p className="eyebrow">Next case study</p>
             <Link
               href={`/case-studies/${next.slug}`}
-              className="group mt-2 block rounded text-xl font-semibold tracking-tight text-fg transition-colors duration-200 ease-brand hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:text-2xl"
+              className="group mt-2 block rounded font-display text-title text-fg transition-colors duration-200 hover:text-fg/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-fg sm:text-2xl"
             >
-              {next.title}{" "}
-              <span
-                aria-hidden
-                className="inline-block transition-transform duration-300 ease-brand motion-safe:group-hover:translate-x-1"
-              >
-                →
-              </span>
+              {next.title}
             </Link>
           </Reveal>
         </section>

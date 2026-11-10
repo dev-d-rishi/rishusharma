@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Geist } from "next/font/google";
 import { siteUrl } from "@/src/components/portfolio/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const display = Bricolage_Grotesque({
+  variable: "--font-display-face",
   subsets: ["latin"],
+  axes: ["opsz", "wdth"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const body = Geist({
+  variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
@@ -56,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${geistSans.variable} ${geistMono.variable}`}
+      className={`h-full antialiased ${display.variable} ${body.variable}`}
     >
       <body className="flex min-h-full flex-col bg-bg font-sans text-fg antialiased">
         {children}

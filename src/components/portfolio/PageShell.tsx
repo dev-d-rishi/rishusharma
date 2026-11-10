@@ -1,10 +1,12 @@
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/src/components/portfolio/SiteFooter";
 import { SiteNavbar } from "@/src/components/portfolio/SiteNavbar";
+import { PixelField } from "@/src/components/portfolio/PixelField";
 
 export function PageShell({ children }: { children: ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col bg-bg text-fg">
+    <div className="relative flex min-h-screen flex-col text-fg">
+      <PixelField />
       <SiteNavbar />
       <main id="main" className="flex flex-1 flex-col">
         {children}
@@ -24,13 +26,13 @@ export function PageHeader({
   description: string;
 }) {
   return (
-    <header className="border-b border-line py-14 sm:py-20">
+    <header className="border-b border-line pt-16 pb-12 sm:pt-24 sm:pb-16">
       <div className="page-container">
-        <p className="rise-in eyebrow">{eyebrow}</p>
-        <h1 className="rise-in mt-3 [animation-delay:80ms] text-heading text-fg">
+        <p className="eyebrow">{eyebrow}</p>
+        <h1 className="rise-in mt-3 max-w-[18ch] font-display text-heading text-fg">
           {title}
         </h1>
-        <p className="rise-in mt-4 max-w-2xl [animation-delay:160ms] text-[15px] leading-relaxed text-muted sm:text-base">
+        <p className="mt-6 max-w-2xl text-lead text-muted">
           {description}
         </p>
       </div>

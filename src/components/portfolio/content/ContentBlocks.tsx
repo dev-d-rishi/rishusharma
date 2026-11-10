@@ -3,14 +3,14 @@ import type { ContentBlock } from "./types";
 
 export function ContentBlocks({ blocks }: { blocks: readonly ContentBlock[] }) {
   return (
-    <div className="space-y-5 text-[15px] leading-relaxed text-muted sm:text-base">
+    <div className="space-y-5 text-body text-muted">
       {blocks.map((block, i) => {
         switch (block.type) {
           case "h2":
             return (
               <h2
                 key={i}
-                className="pt-6 text-xl font-semibold tracking-tight text-fg sm:text-2xl"
+                className="pt-8 font-display text-[clamp(1.5rem,1.3rem+0.8vw,2rem)] font-[500] leading-tight tracking-[-0.03em] text-fg"
               >
                 {block.text}
               </h2>
@@ -33,7 +33,7 @@ export function ContentBlocks({ blocks }: { blocks: readonly ContentBlock[] }) {
                 key={i}
                 className={`space-y-2 pl-5 ${
                   block.ordered ? "list-decimal" : "list-disc"
-                } marker:text-accent`}
+                } marker:text-muted`}
               >
                 {block.items.map((item) => (
                   <li key={item} className="pl-1">
@@ -47,7 +47,7 @@ export function ContentBlocks({ blocks }: { blocks: readonly ContentBlock[] }) {
             return (
               <div
                 key={i}
-                className="overflow-hidden rounded-[14px] border border-line bg-bg"
+                className="glass overflow-hidden rounded-[16px]"
               >
                 {block.lang ? (
                   <div className="border-b border-line px-5 md:px-6 py-2 eyebrow">
@@ -62,7 +62,7 @@ export function ContentBlocks({ blocks }: { blocks: readonly ContentBlock[] }) {
           case "figure":
             return (
               <figure key={i} className="py-4">
-                <div className="mx-auto w-full max-w-[260px] overflow-hidden rounded-[14px] border border-line bg-surface">
+                <div className="phone mx-auto w-full max-w-[260px]"><div className="phone-screen">
                   <Image
                     src={block.src}
                     alt={block.alt}
@@ -71,7 +71,7 @@ export function ContentBlocks({ blocks }: { blocks: readonly ContentBlock[] }) {
                     sizes="260px"
                     className="h-auto w-full"
                   />
-                </div>
+                </div></div>
                 {block.caption ? (
                   <figcaption className="mt-3 text-center text-sm text-muted">
                     {block.caption}
@@ -83,7 +83,7 @@ export function ContentBlocks({ blocks }: { blocks: readonly ContentBlock[] }) {
             return (
               <aside
                 key={i}
-                className="rounded-[14px] border-l-4 border-accent bg-accent/10 px-5 py-4 text-fg"
+                className="glass rounded-[16px] border-l-2 border-l-live px-5 py-4 text-fg"
               >
                 {block.text}
               </aside>

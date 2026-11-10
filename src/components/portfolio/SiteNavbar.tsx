@@ -155,18 +155,18 @@ export function SiteNavbar() {
   return (
     <nav
       aria-label="Primary"
-      className={`sticky top-0 z-50 border-b border-line transition-colors duration-300 ease-brand ${
-        scrolled || open ? "bg-bg/95 backdrop-blur" : "bg-bg"
+      className={`sticky top-0 z-50 border-b transition-colors duration-300 ease-brand ${
+        scrolled || open ? "border-line bg-bg/70 backdrop-blur-xl" : "border-transparent bg-transparent"
       }`}
     >
       <div className="page-container flex h-[72px] items-center justify-between gap-4">
         <Link
           href="/"
-          className="-ml-1 flex items-center gap-3 rounded-lg p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          aria-label="Rishu Sharma — home"
+          className="-ml-1 flex items-center gap-3 rounded-lg p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-fg/70"
+          aria-label="Rishu Sharma, home"
         >
           <BrandMark size={36} />
-          <span className="text-[15px] font-semibold tracking-tight text-fg">
+          <span className="font-display text-[17px] font-[560] tracking-[-0.02em] text-fg">
             Rishu Sharma
           </span>
         </Link>
@@ -184,7 +184,7 @@ export function SiteNavbar() {
                   }}
                   href={l.href}
                   aria-current={currentFor(l.id)}
-                  className={`relative block rounded py-2 text-sm font-medium transition-colors duration-200 ease-brand hover:text-fg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-bg ${
+                  className={`relative block rounded py-2 text-sm font-medium transition-colors duration-200 ease-brand hover:text-fg focus:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 focus-visible:ring-offset-4 focus-visible:ring-offset-bg ${
                     activeId === l.id ? "text-fg" : "text-muted"
                   }`}
                 >
@@ -195,7 +195,7 @@ export function SiteNavbar() {
             {/* Sliding active-section indicator: 1px wide, scaled to the link. */}
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute -bottom-px left-0 h-0.5 w-px origin-left rounded-full bg-accent transition-[transform,opacity] duration-300 ease-brand motion-reduce:transition-none"
+              className="pointer-events-none absolute -bottom-px left-0 h-0.5 w-px origin-left rounded-full bg-fg transition-[transform,opacity] duration-300 ease-brand motion-reduce:transition-none"
               style={{
                 transform: indicator
                   ? `translateX(${indicator.x}px) scaleX(${indicator.w})`
@@ -207,7 +207,7 @@ export function SiteNavbar() {
 
           <Link
             href={contactLink.href}
-            className="hidden min-h-10 items-center rounded-[10px] bg-accent px-4 text-sm font-semibold text-bg transition-[background-color,scale] duration-200 ease-brand hover:bg-accent-hover active:bg-accent-active motion-safe:active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg min-[400px]:inline-flex"
+            className="hidden min-h-10 items-center rounded-full bg-accent px-5 text-sm font-semibold text-bg transition-[background-color,scale] duration-200 ease-brand hover:bg-accent-hover active:bg-accent-active motion-safe:active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg min-[400px]:inline-flex"
           >
             {contactLink.label}
           </Link>
@@ -215,7 +215,7 @@ export function SiteNavbar() {
           <button
             ref={btnRef}
             type="button"
-            className="group -mr-2 flex h-11 w-11 items-center justify-center rounded-[10px] text-fg transition-colors duration-200 hover:bg-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-accent md:hidden"
+            className="group -mr-2 flex h-11 w-11 items-center justify-center rounded-[10px] text-fg transition-colors duration-200 hover:bg-bg-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 md:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -244,7 +244,7 @@ export function SiteNavbar() {
         id="mobile-menu"
         ref={menuRef}
         aria-hidden={!open}
-        className={`absolute inset-x-0 top-full max-h-[calc(100dvh-72px)] overflow-y-auto border-b border-line bg-bg duration-300 ease-brand motion-reduce:translate-y-0 motion-reduce:duration-150 md:hidden ${
+        className={`absolute inset-x-0 top-full max-h-[calc(100dvh-72px)] overflow-y-auto border-b border-line bg-bg/95 backdrop-blur-xl duration-300 ease-brand motion-reduce:translate-y-0 motion-reduce:duration-150 md:hidden ${
           // Visibility flips on instantly when opening (so focus can move in)
           // and only switches off after the fade when closing.
           open
@@ -260,13 +260,13 @@ export function SiteNavbar() {
                 onClick={() => closeMenu()}
                 tabIndex={open ? undefined : -1}
                 aria-current={currentFor(l.id)}
-                className="flex min-h-14 items-center justify-between text-lg font-medium text-fg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="flex min-h-14 items-center justify-between text-lg font-medium text-fg focus:outline-none focus-visible:ring-2 focus-visible:ring-fg/70"
               >
                 {l.label}
                 {activeId === l.id ? (
                   <span
                     aria-hidden="true"
-                    className="h-1.5 w-1.5 rounded-full bg-accent"
+                    className="h-1.5 w-1.5 rounded-full bg-fg"
                   />
                 ) : null}
               </Link>
@@ -277,7 +277,7 @@ export function SiteNavbar() {
               href={contactLink.href}
               onClick={() => closeMenu()}
               tabIndex={open ? undefined : -1}
-              className="flex min-h-12 w-full items-center justify-center rounded-[10px] bg-accent text-[15px] font-semibold text-bg transition-[background-color,scale] duration-200 ease-brand hover:bg-accent-hover active:bg-accent-active motion-safe:active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              className="flex min-h-12 w-full items-center justify-center rounded-full bg-accent text-[15px] font-semibold text-bg transition-[background-color,scale] duration-200 ease-brand hover:bg-accent-hover active:bg-accent-active motion-safe:active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
             >
               {contactLink.label}
             </Link>

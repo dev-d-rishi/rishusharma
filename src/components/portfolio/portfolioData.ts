@@ -16,11 +16,9 @@ export const personalInfo = {
 } as const;
 
 export const hero = {
-  headline: "I build mobile experiences that solve real problems.",
-  /** Trailing part of the headline rendered in the accent colour. */
-  headlineAccent: "real problems.",
+  headline: "I build and ship React Native apps for iOS and Android.",
   description:
-    "I'm a React Native developer with 3+ years of experience building production-ready applications for iOS and Android, from feature development to integrations and app releases.",
+    "For 3+ years I've owned mobile apps end to end: the architecture and features, the native SDK and payment integrations, then signing, store review and the production release.",
 } as const;
 
 /** Homepage "About" copy. The longer `aboutSummary` below is kept for reference. */
@@ -154,11 +152,14 @@ export type PortfolioProject = {
   status?: "In Development";
   links: ProjectLinks;
   imageSrc?: string;
+  /** Official store icon (square; rounded in the UI). */
+  iconSrc?: string;
 };
 
 export const projects: PortfolioProject[] = [
   {
     name: "Fyntiq Wallet",
+    iconSrc: "/projects/icons/fyntiq-wallet.png",
     subtitle: "Mobile Crypto Wallet",
     description:
       "Secure crypto wallet with Privy SDK for wallet creation and onboarding. Deep linking and in-app browser flows for Refer & Earn, plus transaction history, balance tracking, and multi-chain asset management.",
@@ -176,6 +177,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     name: "Fyntiq Business",
+    iconSrc: "/projects/icons/fyntiq-business.png",
     subtitle: "Mobile Payment & Invoice Platform",
     description:
       "Merchant payment app with invoice generation and secure payment link sharing. Multi-business account management, real-time transaction tracking, and multi-provider payment integration with App Store privacy compliance. Currently integrating Tap to Pay on Phone via Adyen Android and iOS SDKs through custom native modules.",
@@ -194,6 +196,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     name: "LeadHerself",
+    iconSrc: "/projects/icons/leadherself.png",
     subtitle: "Women's Leadership Platform",
     description:
       "Cross-platform app for guided self-leadership journeys and personalized growth. Firebase Authentication, role-based access control, event registration, push notifications and local data persistence.",
@@ -212,6 +215,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     name: "Wooftag",
+    iconSrc: "/projects/icons/wooftag.png",
     subtitle: "Pet Identity & Community App",
     description:
       "QR-based pet identification for instant owner lookup without microchip scanners. Google Maps and real-time GPS sharing, with push and email alerts containing live coordinates when a pet tag is scanned.",
@@ -229,6 +233,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     name: "Disha Portal",
+    iconSrc: "/projects/icons/disha-portal.png",
     subtitle: "Honda",
     description:
       "React Native app for Honda's Disha Portal serving dealers, transporters, and HMSI users. Multilingual support optimized for low-bandwidth environments, with secure auth, showroom locator, vehicle booking enquiries, and load change request workflows.",

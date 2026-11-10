@@ -75,7 +75,7 @@ export const fyntiqWalletCaseStudy: CaseStudy = {
     appStore: "https://apps.apple.com/us/app/fyntiq-wallet/id6779112642",
   },
   highlights: [
-    { label: "Scale", value: "~100 screens, ~88k lines of TypeScript" },
+    { label: "Scale", value: "~100 screens, written in TypeScript" },
     { label: "Integrations", value: "10+ financial SDKs and APIs" },
     { label: "Languages", value: "9 locales, including RTL Arabic" },
   ],

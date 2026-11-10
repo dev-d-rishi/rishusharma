@@ -1,5 +1,9 @@
 import { SectionReveal } from "@/src/components/portfolio/SectionReveal";
-import { aboutIntro, projects } from "@/src/components/portfolio/portfolioData";
+import {
+  aboutIntro,
+  experience,
+  projects,
+} from "@/src/components/portfolio/portfolioData";
 
 export function AboutSection() {
   const [opening, ...rest] = aboutIntro;
@@ -9,43 +13,59 @@ export function AboutSection() {
 
   const facts = [
     { value: "3+ years", label: "Building with React Native" },
-    { value: `${liveApps} apps`, label: "Live on the App Store & Google Play" },
-    { value: "iOS & Android", label: "Native SDKs, integrations & releases" },
+    {
+      value: `${liveApps} apps`,
+      label: "Live on the App Store and Google Play",
+    },
+    {
+      value: experience.company,
+      label: `${experience.role} since ${experience.duration.split(" –")[0]}`,
+    },
   ];
 
   return (
-    <SectionReveal id="about" className="section-y border-t border-line">
+    <SectionReveal
+      id="about"
+      aria-labelledby="about-heading"
+      className="section-y border-t border-line"
+    >
       <div className="page-container grid gap-10 lg:grid-cols-12 lg:gap-8">
-        <div data-reveal className="lg:col-span-4">
-          <p className="eyebrow">About</p>
-          <h2 id="about-heading" className="mt-4 text-heading text-fg">
-            Hi, I&apos;m Rishu.
-          </h2>
-        </div>
+        <h2
+          id="about-heading"
+          data-reveal
+          className="font-display text-heading text-fg lg:col-span-4"
+        >
+          Hi, I&apos;m Rishu.
+        </h2>
 
-        <div data-reveal className="lg:col-span-8">
-          <p className="max-w-[40rem] text-balance text-[clamp(1.25rem,1.1rem+0.6vw,1.5rem)] leading-[1.5] tracking-[-0.01em] text-fg">
+        <div data-reveal className="lg:col-span-7 lg:col-start-6">
+          <p className="max-w-[38rem] text-pretty font-display text-[clamp(1.375rem,1.15rem+0.9vw,1.875rem)] font-[450] leading-[1.35] tracking-[-0.02em] text-fg">
             {opening}
           </p>
           {rest.map((paragraph) => (
             <p
               key={paragraph.slice(0, 40)}
-              className="mt-6 max-w-[40rem] text-lead text-muted"
+              className="mt-6 max-w-[38rem] text-lead text-muted"
             >
               {paragraph}
             </p>
           ))}
 
-          <ul className="mt-12 grid gap-6 border-t border-line pt-8 sm:grid-cols-3">
+          <dl className="mt-14 grid gap-6 sm:grid-cols-3">
             {facts.map((f) => (
-              <li key={f.value}>
-                <span className="block text-title text-fg">{f.value}</span>
-                <span className="mt-1 block text-sm text-subtle">
-                  {f.label}
-                </span>
-              </li>
+              <div key={f.label} className="border-t border-line pt-4">
+                <dt className="sr-only">{f.label}</dt>
+                <dd>
+                  <span className="block font-display text-title text-fg">
+                    {f.value}
+                  </span>
+                  <span className="mt-1.5 block text-sm leading-snug text-subtle">
+                    {f.label}
+                  </span>
+                </dd>
+              </div>
             ))}
-          </ul>
+          </dl>
         </div>
       </div>
     </SectionReveal>

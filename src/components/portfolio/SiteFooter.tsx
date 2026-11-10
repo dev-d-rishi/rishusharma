@@ -5,15 +5,15 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-line bg-bg">
+    <footer className="border-t border-line">
       <div className="page-container flex flex-col gap-4 py-8 text-sm text-subtle sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <BrandMark size={28} />
           <p>
             <span className="font-medium text-fg">{personalInfo.name}</span>
-            <span aria-hidden="true"> · </span>
             <span className="sr-only">, </span>
-            {personalInfo.descriptor}
+            <span aria-hidden="true">, </span>
+            {personalInfo.descriptor.toLowerCase()}
           </p>
         </div>
         <p>

@@ -18,8 +18,8 @@ export default function CaseStudiesPage() {
         title="How the apps were built"
         description="The problems, constraints, and engineering decisions behind production React Native apps for fintech and consumer products."
       />
-      <section className="py-14">
-        <Reveal className="page-container grid gap-6 md:grid-cols-2">
+      <section className="pt-14 pb-24 sm:pb-32">
+        <Reveal className="page-container grid gap-16 md:grid-cols-2 md:gap-10">
           {caseStudies.map((study) => (
             <CaseStudyCard key={study.slug} study={study} />
           ))}

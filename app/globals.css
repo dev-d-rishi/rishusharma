@@ -1,24 +1,32 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------ */
-/* Finalized design system — Premium Dark Tech                         */
+/* Design tokens                                                       */
+/*                                                                     */
+/* Near-black with a pixel field behind it (PixelField.tsx), glass      */
+/* surfaces with hairline borders, near-white type. Colour is kept to  */
+/* the glow behind the hero and the pulsing cells in the pixel field.   */
 /* ------------------------------------------------------------------ */
 :root {
-  --background: #080b14;
-  --background-2: #0d1320;
-  --surface: #111827;
-  --surface-hover: #1a2638;
+  --background: #030304;
+  --background-2: #08080a;
+  --surface: rgb(255 255 255 / 0.035);
+  --surface-hover: rgb(255 255 255 / 0.07);
 
-  --foreground: #f8fafc;
-  --muted: #a7b3c7; /* secondary text */
-  --subtle: #8492a6; /* muted text */
+  --foreground: #f5f5f7;
+  --muted: #a1a1aa; /* 8.8:1 on background */
+  --subtle: #85858f; /* 6.1:1 on background */
 
-  --accent: #34d399;
-  --accent-hover: #10b981;
-  --accent-active: #059669;
+  --accent: #f5f5f7;
+  --accent-hover: #ffffff;
+  --accent-active: #d4d4d8;
 
-  --line: #263449;
-  --line-strong: #34445e;
+  --live: #6ee7b7;
+  --glow-a: #6d5dfc;
+  --glow-b: #22d3ee;
+
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.18);
 
   color-scheme: dark;
 }
@@ -34,129 +42,119 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-active: var(--accent-active);
+  --color-live: var(--live);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display-face);
 
-  /* Motion language: one easing curve everywhere (also used by GSAP). */
   --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Type scale (Geist). Fluid between ~360px and ~1440px viewports. */
+/* ------------------------------------------------------------------ */
+/* Type scale                                                          */
+/* Display: Bricolage Grotesque at its largest optical size, medium    */
+/* weight, tight tracking. Body: Geist.                                */
+/* ------------------------------------------------------------------ */
 @theme {
-  /* Hero: 40px → 74px */
-  --text-display: clamp(2.5rem, 1.72rem + 3.2vw, 4.625rem);
-  --text-display--line-height: 1.06;
-  --text-display--letter-spacing: -0.035em;
-  --text-display--font-weight: 650;
+  /* Hero: 44px → 112px */
+  --text-display: clamp(2.75rem, 1.2rem + 6.6vw, 7rem);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.04em;
+  --text-display--font-weight: 500;
 
-  /* Section headings: 28px → 42px */
-  --text-heading: clamp(1.75rem, 1.4rem + 1.5vw, 2.625rem);
-  --text-heading--line-height: 1.15;
-  --text-heading--letter-spacing: -0.025em;
-  --text-heading--font-weight: 620;
+  /* Section statements: 32px → 56px */
+  --text-heading: clamp(2rem, 1.5rem + 2.2vw, 3.5rem);
+  --text-heading--line-height: 1.02;
+  --text-heading--letter-spacing: -0.035em;
+  --text-heading--font-weight: 500;
 
-  /* Card headings: 20px → 24px */
-  --text-title: clamp(1.25rem, 1.16rem + 0.4vw, 1.5rem);
-  --text-title--line-height: 1.3;
-  --text-title--letter-spacing: -0.015em;
-  --text-title--font-weight: 600;
+  /* App names, item titles: 22px → 30px */
+  --text-title: clamp(1.375rem, 1.2rem + 0.75vw, 1.875rem);
+  --text-title--line-height: 1.1;
+  --text-title--letter-spacing: -0.025em;
+  --text-title--font-weight: 500;
 
-  /* Lead / large body: 16px → 18px */
-  --text-lead: clamp(1rem, 0.95rem + 0.22vw, 1.125rem);
-  --text-lead--line-height: 1.7;
+  /* Lead: 17px → 20px */
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --text-lead--line-height: 1.55;
 
-  /* Body: 15px → 16px */
-  --text-body: clamp(0.9375rem, 0.92rem + 0.08vw, 1rem);
-  --text-body--line-height: 1.7;
+  /* Body: 15.5px → 16px */
+  --text-body: clamp(0.96875rem, 0.95rem + 0.1vw, 1rem);
+  --text-body--line-height: 1.65;
 
-  /* Eyebrows / labels: 13px */
-  --text-label: 0.8125rem;
+  /* Meta: 13.5px */
+  --text-label: 0.84375rem;
   --text-label--line-height: 1.4;
-  --text-label--letter-spacing: 0.04em;
   --text-label--font-weight: 500;
 }
 
-/* Centered page container: 1200px max, 20 / 24 / 32px gutters. */
+@utility font-display {
+  font-family: var(--font-display-face), system-ui, sans-serif;
+  font-variation-settings: "opsz" 96;
+}
+
+/* Page container: 1240px content. */
 @utility page-container {
   width: 100%;
-  max-width: 1264px; /* 1200px content + 2 × 32px gutters */
+  max-width: 1336px;
   margin-inline: auto;
   padding-inline: 20px;
 
   @media (width >= 768px) {
-    padding-inline: 24px;
-  }
-  @media (width >= 1024px) {
     padding-inline: 32px;
   }
+  @media (width >= 1024px) {
+    padding-inline: 48px;
+  }
 }
 
-/* Vertical section rhythm: 64 / 80 / 112px. */
+/* Vertical rhythm: 80 / 112 / 144px. */
 @utility section-y {
-  padding-block: 64px;
+  padding-block: 80px;
 
   @media (width >= 768px) {
-    padding-block: 80px;
+    padding-block: 112px;
   }
   @media (width >= 1024px) {
-    padding-block: 112px;
+    padding-block: 144px;
   }
 }
 
-/* Section eyebrow label. */
+/* Quiet meta label: sentence case. */
 @utility eyebrow {
   font-size: var(--text-label);
   line-height: var(--text-label--line-height);
-  letter-spacing: 0.08em;
   font-weight: 500;
-  text-transform: uppercase;
-  color: var(--accent);
+  color: var(--subtle);
+}
+
+/* Glass panel: hairline border, faint fill, inner highlight. */
+@utility glass {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06);
+}
+
+/* Phone frame: slim dark bezel, soft drop shadow. */
+@utility phone {
+  border-radius: 28px;
+  background: #0e0e12;
+  padding: 6px;
+  border: 1px solid var(--line-strong);
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 0.6),
+    0 40px 80px -30px rgb(0 0 0 / 0.8);
+}
+@utility phone-screen {
+  border-radius: 22px;
+  overflow: hidden;
+  background: #000;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-/* ------------------------------------------------------------------ */
-/* Entrance animations (CSS-only, so they run before hydration and     */
-/* always end visible — content never depends on JavaScript).          */
-/* ------------------------------------------------------------------ */
-@keyframes rise-in {
-  from {
-    opacity: 0;
-    translate: 0 14px;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-}
-
-/* Stagger with [animation-delay:…] utilities (80–100ms steps). */
-.rise-in {
-  animation: rise-in 560ms var(--ease-brand) both;
-}
-
-.fade-in {
-  animation: fade-in 900ms var(--ease-brand) both;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .rise-in,
-  .fade-in {
-    animation: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
 }
 
 body {
@@ -166,11 +164,53 @@ body {
 }
 
 ::selection {
-  background: rgb(52 211 153 / 0.3);
-  color: var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
 }
 
-/* Keep anchors from hiding behind the 72px sticky navbar */
 section[id] {
   scroll-margin-top: 72px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion                                                              */
+/* Hero elements rise on load. Everything marked data-reveal lifts in  */
+/* once as it scrolls into view (only after JS has set `js-reveal`, so */
+/* content is never hidden without it).                                */
+/* ------------------------------------------------------------------ */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+}
+
+.rise-in {
+  animation: rise-in 900ms var(--ease-brand) both;
+}
+
+html.js-reveal [data-reveal] {
+  opacity: 0;
+  translate: 0 20px;
+  transition:
+    opacity 800ms var(--ease-brand),
+    translate 800ms var(--ease-brand);
+}
+html.js-reveal [data-reveal].is-in {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise-in {
+    animation: none;
+  }
+  html.js-reveal [data-reveal] {
+    opacity: 1;
+    translate: 0 0;
+    transition: none;
+  }
 }

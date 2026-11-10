@@ -24,15 +24,15 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
     <Link
       href={`/case-studies/${study.slug}`}
       data-reveal
-      className="group flex h-full flex-col overflow-hidden rounded-[14px] border border-line bg-surface transition-[translate,scale,border-color,background-color] duration-300 ease-brand hover:border-accent/35 hover:bg-surface-hover motion-safe:hover:-translate-y-1 motion-safe:active:scale-[0.985] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+      className="group flex h-full flex-col rounded-[6px] focus:outline-none focus-visible:ring-2 focus-visible:ring-fg/70 focus-visible:ring-offset-4 focus-visible:ring-offset-bg"
     >
-      <div className="relative h-44 overflow-hidden border-b border-line">
+      <div className="glass relative h-56 overflow-hidden rounded-[24px] sm:h-64">
         {study.screenshots && study.screenshots.length >= 3 ? (
-          <div className="flex h-full items-end justify-center gap-3 bg-bg px-6 pt-5">
+          <div className="flex h-full items-end justify-center gap-4 px-6 pt-8">
             {study.screenshots.slice(0, 3).map((shot, i) => (
               <div
                 key={shot.src}
-                className={`relative w-[26%] overflow-hidden rounded-t-xl border border-b-0 border-line bg-surface ${
+                className={`relative w-[26%] overflow-hidden rounded-t-[16px] border border-b-0 border-line-strong bg-black ${
                   i === 1 ? "h-full" : "h-[85%]"
                 }`}
               >
@@ -41,7 +41,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
                   alt=""
                   fill
                   sizes="120px"
-                  className="object-cover object-top transition-transform duration-300 ease-brand motion-safe:group-hover:scale-[1.03]"
+                  className="object-cover object-top"
                 />
               </div>
             ))}
@@ -58,24 +58,16 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
           <Placeholder label={study.client} />
         )}
       </div>
-      <div className="flex flex-1 flex-col p-6">
-        <p className="eyebrow">
-          {study.client} · {study.category}
-        </p>
-        <h3 className="mt-2 text-lg font-semibold leading-snug tracking-tight text-fg">
+      <div className="flex flex-1 flex-col pt-6">
+        <p className="eyebrow">{study.category}</p>
+        <h3 className="mt-2 font-display text-title text-fg transition-colors duration-200 group-hover:text-fg/80">
           {study.title}
         </h3>
-        <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted">
+        <p className="mt-3 line-clamp-3 text-body text-muted">
           {study.summary}
         </p>
-        <span className="mt-auto pt-5 text-sm font-medium text-fg">
-          Read case study{" "}
-          <span
-            aria-hidden
-            className="inline-block transition-transform duration-300 ease-brand motion-safe:group-hover:translate-x-1"
-          >
-            →
-          </span>
+        <span className="mt-auto pt-5 text-sm font-medium text-muted">
+          Read the case study
         </span>
       </div>
     </Link>
