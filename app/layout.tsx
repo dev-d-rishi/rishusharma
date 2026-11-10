@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 const title = "Rishu Sharma | Independent Mobile Engineer";
 const description =
-  "Independent mobile engineer specialising in React Native & mobile app development. 4+ years of experience building production-ready apps for iOS and Android — from feature development to integrations and app releases. Available for freelance projects.";
+  "Independent mobile engineer specialising in React Native & mobile app development. 3+ years of experience building production-ready apps for iOS and Android — from feature development to integrations and app releases. Available for freelance projects.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

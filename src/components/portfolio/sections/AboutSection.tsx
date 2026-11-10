@@ -8,7 +8,7 @@ export function AboutSection() {
   ).length;
 
   const facts = [
-    { value: "4+ years", label: "Building with React Native" },
+    { value: "3+ years", label: "Building with React Native" },
     { value: `${liveApps} apps`, label: "Live on the App Store & Google Play" },
     { value: "iOS & Android", label: "Native SDKs, integrations & releases" },
   ];

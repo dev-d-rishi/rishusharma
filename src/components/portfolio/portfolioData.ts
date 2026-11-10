@@ -20,12 +20,12 @@ export const hero = {
   /** Trailing part of the headline rendered in the accent colour. */
   headlineAccent: "real problems.",
   description:
-    "I'm a React Native developer with 4+ years of experience building production-ready applications for iOS and Android, from feature development to integrations and app releases.",
+    "I'm a React Native developer with 3+ years of experience building production-ready applications for iOS and Android, from feature development to integrations and app releases.",
 } as const;
 
 /** Homepage "About" copy. The longer `aboutSummary` below is kept for reference. */
 export const aboutIntro = [
-  "I'm Rishu, a React Native developer who has spent the last 4+ years building and shipping production apps for Android and iOS — from fintech wallets and merchant payment tools to consumer and community products.",
+  "I'm Rishu, a React Native developer who has spent the last 3+ years building and shipping production apps for Android and iOS — from fintech wallets and merchant payment tools to consumer and community products.",
   "Most of my work sits where the product meets the platform: native SDK integrations, payments, maps, notifications and the release pipeline that gets an app into the stores. I enjoy untangling hard technical problems, and I work closely with designers, backend engineers and QA to ship apps that hold up in production.",
 ] as const;
 
@@ -66,7 +66,7 @@ export const featuredCaseStudySlugs = [
 ] as const;
 
 export const aboutSummary = [
-  "Results-driven React Native Developer with 4+ years of hands-on experience building and shipping cross-platform mobile applications for Android and iOS.",
+  "Results-driven React Native Developer with 3+ years of hands-on experience building and shipping cross-platform mobile applications for Android and iOS.",
   "Strong expertise in React Native, JavaScript, TypeScript, Redux Toolkit, Firebase, REST APIs, and mobile architecture — with experience owning the full mobile product lifecycle from architecture and development through App Store and Google Play deployment.",
   "Currently pursuing a Bachelor of Computer Applications (BCA), started in 2026. Open to senior React Native, mobile engineering, and product-based SaaS roles with international remote teams.",
 ] as const;
