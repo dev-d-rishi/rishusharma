@@ -75,7 +75,7 @@ export const fyntiqWalletCaseStudy: CaseStudy = {
     appStore: "https://apps.apple.com/us/app/fyntiq-wallet/id6779112642",
   },
   highlights: [
-    { label: "Scale", value: "~100 screens, written in TypeScript" },
+    { label: "Platforms", value: "Live on iOS and Android" },
     { label: "Integrations", value: "10+ financial SDKs and APIs" },
     { label: "Languages", value: "9 locales, including RTL Arabic" },
   ],
@@ -87,7 +87,7 @@ export const fyntiqWalletCaseStudy: CaseStudy = {
     },
     {
       type: "p",
-      text: "I built the mobile app from scratch as the lead mobile engineer, working alongside the backend developer. It is a single TypeScript codebase on Expo and React Native that ships to the App Store and Google Play, with around 100 routed screens and support for nine languages, including right-to-left Arabic.",
+      text: "I built the mobile app from scratch as the lead mobile engineer, working alongside the backend developer. It is a single TypeScript codebase on Expo and React Native that ships to the App Store and Google Play, with support for nine languages, including right-to-left Arabic.",
     },
     { type: "h2", text: "The problem" },
     {
@@ -230,7 +230,7 @@ export async function loadSystemConfig(): Promise<SystemConfig> {
       type: "list",
       items: [
         "Live on the App Store and Google Play.",
-        "Around 100 routed screens covering onboarding, payments, funding, crypto, card, rewards and settings.",
+        "Full product coverage across onboarding, payments, funding, crypto, card, rewards and settings.",
         "More than ten regulated or financial third-party SDKs and APIs working together in one app.",
         "Nine locales, including right-to-left Arabic.",
         "EAS build profiles for development, internal preview, TestFlight and production, with separate over-the-air update channels.",
